@@ -1,24 +1,30 @@
 # Learning Journey
 
----
 
 ## Completed
 
 - CS50
 
----
 
 ## In Progress
 
 - Berkeley CS61B – Data Structures
 
----
-
-## Sequence
-
----
 
 ## Planned
+- MIT 6.042J — Mathematics for Computer Science
+- Berkeley CS61C — Great Ideas in Computer Architecture
+- MIT 6.S081 — Operating System Engineering
+- Stanford CS144 — Introduction to Computer Networking
+- MIT 6.006 — Introduction to Algorithms
+- LeetCode sprint — 100 problems
+- Berkeley CS186 — Introduction to Database Systems
+- CMU 15-445 — Database Systems
+- MIT 6.824 — Distributed Systems
+- Stanford CS221 — Artificial Intelligence
+
+
+## Candidate Courses
 1. Berkeley CS61A – Structure and Interpretation of Computer Programs
 3. Berkeley CS61C – Great Ideas in Computer Architecture
 4. Berkeley CS162 – Operating Systems and Systems Programming
