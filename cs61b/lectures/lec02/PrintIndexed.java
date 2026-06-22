@@ -6,7 +6,20 @@ package cs61b.lectures.lec02;
  */
 
 public class PrintIndexed {
+    public static String indexed(String input) {
+        int n = input.length();
+        StringBuilder sb = new StringBuilder();
+
+        int i = 0;
+        while (i < n) {
+            sb.append(input.charAt(i)).append(n - i - 1);
+            i++;
+        }
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
-        
+        String input = "hello";
+        System.out.println("Indexed String: " + indexed(input));
     }
 }
