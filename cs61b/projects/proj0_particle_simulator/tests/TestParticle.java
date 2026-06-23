@@ -1,5 +1,7 @@
 package cs61b.projects.proj0_particle_simulator.tests;
 
+import edu.princeton.cs.algs4.StdRandom;
+
 import java.awt.*;
 import java.util.Map;
 
