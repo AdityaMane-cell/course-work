@@ -26,6 +26,7 @@
 
 ## Candidate Courses
 1. Berkeley CS61A – Structure and Interpretation of Computer Programs
+2. Berkeley CS61B – Data Structures
 3. Berkeley CS61C – Great Ideas in Computer Architecture
 4. Berkeley CS162 – Operating Systems and Systems Programming
 5. Berkeley CS169 – Software Engineering
