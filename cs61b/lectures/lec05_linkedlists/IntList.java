@@ -58,17 +58,35 @@ class IntList {
     }
 
     // sum
+    public static int sum(IntList first) {
+        int sum = 0;
+        IntList temp = first;
+        while (temp != null) {
+            sum += temp.first;
+            temp = temp.rest;
+        }
+        return sum;
+    }
+
     // addFirst
+    public IntList addFirst(int x) {
+        return new IntList(x, this);
+    }
+
     // addLast
+    public void addLast(int x) {
+
+    }
 
     public static void print(IntList l) {
         int n = l.size();
         IntList m = l;
         System.out.println("Printing list: ");
         for (int i = 0; i < n; i++) {
-            System.out.println(m.first);
+            System.out.print(m.first + " -> ");
             m = m.rest;
         }
+        System.out.println("null");
     }
 
     public static void main(String[] args) {
@@ -80,10 +98,18 @@ class IntList {
         System.out.println("Iteration Size: " + l.iterativeSize());
         System.out.println("I'th element: " + l.get(1));
 
-        IntList nl = incrList(l, 3);
-        print(nl);
+        // IntList nl = incrList(l, 3);
+        // print(nl);
 
-        dincrList(l, 3);
+        // dincrList(l, 3);
+        print(l);
+
+        System.out.println("Total Sum: " + sum(l));
+
+        l = l.addFirst(7);
+        print(l);
+
+        l.addLast(99);
         print(l);
     }
 }
