@@ -59,7 +59,18 @@ public class CustomLinkedList<T> {
         size++;
     }
 
-    // public T get(int index) {}
+    // method to retrive linkedlist data by index
+    public T get(int index) {
+        if(index < 0 || index > size) return null;
+        Node<T> curr = head;
+        for(int i=0; i<size; i++) {
+          if(i == index) {
+            return curr.data;
+          }
+          curr = curr.next;
+        }
+        return null;
+    }
 
     public T getFirst() {
         return (head != null) ? this.head.data : null;
