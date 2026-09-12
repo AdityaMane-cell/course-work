@@ -13,6 +13,11 @@ public class SLList {
     private IntNode first;
     private int size;
 
+    public SLList() {
+        first = null;
+        size = 0;
+    }
+
     public SLList(int x) {
         first = new IntNode(x, null);
         size++;
@@ -38,6 +43,15 @@ public class SLList {
         System.out.println(l2); // testing addlast()
         System.out.println("Size: " + l2.size());
 
+        /* NullPointerException Error.
+        It occurs when SLList is intantialized with SLList() instead of SLList(x)
+        mechanism failure: When addLast() is invoked on the null list it tries to access the next feild of null which doesn't exist.
+        solution: add null check in addLast method and if List is null then invoke addFirst method internally */
+        SLList l3 = new SLList();
+        l3.addLast(11);
+        System.out.println("Solving the error: " + l3); // testing
+
+
     }
 
     public void addFirst(int x) {
@@ -53,6 +67,11 @@ public class SLList {
 
     public void addLast(int x) {
         IntNode temp = first;
+        
+        if(temp == null) {
+            addFirst(x);
+            return;
+        }
 
         while (temp.next != null) {
             temp = temp.next;
