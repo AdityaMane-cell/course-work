@@ -25,7 +25,16 @@ public class SLList {
         l.addFirst(4);
         l.addFirst(2);
 
-        System.out.println(l); // testing toString()
+        System.out.println(l); // testing addfirst & toString()
+
+        SLList l2 = new SLList(20);
+        l2.addLast(30);
+        l2.addLast(40);
+        l2.addLast(50);
+        l2.addLast(60);
+
+        System.out.println(l2); //testing addlast
+
     }
 
     public void addFirst(int x) {
@@ -36,6 +45,15 @@ public class SLList {
 
     public int getFirst() {
         return first.item;
+    }
+
+    public void addLast(int x) {
+        IntNode temp = first;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = new IntNode(x, null);
     }
 
     @Override
