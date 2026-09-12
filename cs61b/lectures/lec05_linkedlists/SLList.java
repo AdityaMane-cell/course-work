@@ -10,8 +10,12 @@ public class SLList {
         }
     }
 
-    /* sentinel reference always points to sentinel node
-    first item if it exists is always at sentinel.next */
+    /*
+     * sentinel reference always points to sentinel node
+     * first item if it exists is always at sentinel.next
+     * sentinel is an invariant(something that will always hold true durning code
+     * execution
+     */
     private IntNode sentinel;
     private int size;
 
@@ -46,18 +50,23 @@ public class SLList {
         System.out.println(l2); // testing addlast()
         System.out.println("Size: " + l2.size());
 
-        /* NullPointerException Error.
-        It occurs when SLList is intantialized with SLList() instead of SLList(x)
-        mechanism failure: When addLast() is invoked on the null list it tries to access the next feild of null which doesn't exist.
-        solution: 
-        Approach 1 -> add null check in addLast method and if List is null then invoke addFirst method internally
-        Approach 2 -> use sentinel node which is actually vastly superior to the approach 1.
-            sentinel node eliminates the need for these special cases.
-            which make the code clear, bug resistent & easier to upgrade (eg. convert to doubly linkedlist approach1 would result in lots of errors)*/
+        /*
+         * NullPointerException Error.
+         * It occurs when SLList is intantialized with SLList() instead of SLList(x)
+         * mechanism failure: When addLast() is invoked on the null list it tries to
+         * access the next feild of null which doesn't exist.
+         * solution:
+         * Approach 1 -> add null check in addLast method and if List is null then
+         * invoke addFirst method internally
+         * Approach 2 -> use sentinel node which is actually vastly superior to the
+         * approach 1.
+         * sentinel node eliminates the need for these special cases.
+         * which make the code clear, bug resistent & easier to upgrade (eg. convert to
+         * doubly linkedlist approach1 would result in lots of errors)
+         */
         SLList l3 = new SLList();
         l3.addLast(11);
         System.out.println("Solving the error: " + l3); // testing
-
 
     }
 
@@ -73,14 +82,14 @@ public class SLList {
 
     public void addLast(int x) {
         IntNode temp = sentinel;
-        
+
         /*
          * approach 1
          * if(temp == null) {
          * addFirst(x);
          * return;
          * }
-         */ 
+         */
 
         while (temp.next != null) {
             temp = temp.next;
@@ -96,13 +105,13 @@ public class SLList {
 
     // // helper for size
     // public static int size(IntNode p) {
-    //     if (p.next == null) {
-    //         return 1;
-    //     }
-    //     return 1 + size(p.next);
+    // if (p.next == null) {
+    // return 1;
+    // }
+    // return 1 + size(p.next);
     // }
     // public int size() {
-    //     return size(first);
+    // return size(first);
     // }
 
     @Override
