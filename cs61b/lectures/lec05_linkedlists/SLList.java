@@ -11,9 +11,11 @@ public class SLList {
     }
 
     private IntNode first;
+    private int size;
 
     public SLList(int x) {
         first = new IntNode(x, null);
+        size++;
     }
 
     public static void main(String[] args) {
@@ -42,6 +44,7 @@ public class SLList {
         // first = new IntNode(x, first); // below broken down into multiple lines
         IntNode temp = new IntNode(x, first);
         first = temp;
+        size++;
     }
 
     public int getFirst() {
@@ -55,19 +58,24 @@ public class SLList {
             temp = temp.next;
         }
         temp.next = new IntNode(x, null);
+        size++;
     }
 
-    // helper for size
-    public static int size(IntNode p) {
-        if (p.next == null) {
-            return 1;
-        }
-        return 1 + size(p.next);
-    }
-
+    // faster and computationally cheaper method
     public int size() {
-        return size(first);
+        return size;
     }
+
+    // // helper for size
+    // public static int size(IntNode p) {
+    //     if (p.next == null) {
+    //         return 1;
+    //     }
+    //     return 1 + size(p.next);
+    // }
+    // public int size() {
+    //     return size(first);
+    // }
 
     @Override
     public String toString() {
