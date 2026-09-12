@@ -10,16 +10,19 @@ public class SLList {
         }
     }
 
-    private IntNode first;
+    /* sentinel reference always points to sentinel node
+    first item if it exists is always at sentinel.next */
+    private IntNode sentinel;
     private int size;
 
     public SLList() {
-        first = null;
+        sentinel = new IntNode(63, null);
         size = 0;
     }
 
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(63, null);
+        sentinel.next = new IntNode(x, null);
         size++;
     }
 
@@ -46,7 +49,11 @@ public class SLList {
         /* NullPointerException Error.
         It occurs when SLList is intantialized with SLList() instead of SLList(x)
         mechanism failure: When addLast() is invoked on the null list it tries to access the next feild of null which doesn't exist.
-        solution: add null check in addLast method and if List is null then invoke addFirst method internally */
+        solution: 
+        Approach 1 -> add null check in addLast method and if List is null then invoke addFirst method internally
+        Approach 2 -> use sentinel node which is actually vastly superior to the approach 1.
+            sentinel node eliminates the need for these special cases.
+            which make the code clear, bug resistent & easier to upgrade (eg. convert to doubly linkedlist approach1 would result in lots of errors)*/
         SLList l3 = new SLList();
         l3.addLast(11);
         System.out.println("Solving the error: " + l3); // testing
@@ -54,24 +61,26 @@ public class SLList {
 
     }
 
+    // add x in front of the list
     public void addFirst(int x) {
-        // first = new IntNode(x, first); // below broken down into multiple lines
-        IntNode temp = new IntNode(x, first);
-        first = temp;
+        sentinel.next = new IntNode(x, sentinel.next);
         size++;
     }
 
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     public void addLast(int x) {
-        IntNode temp = first;
+        IntNode temp = sentinel;
         
-        if(temp == null) {
-            addFirst(x);
-            return;
-        }
+        /*
+         * approach 1
+         * if(temp == null) {
+         * addFirst(x);
+         * return;
+         * }
+         */ 
 
         while (temp.next != null) {
             temp = temp.next;
@@ -99,7 +108,7 @@ public class SLList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
-        IntNode temp = first;
+        IntNode temp = sentinel.next;
         while (temp != null) {
             sb.append(temp.item);
             if (temp.next != null)
