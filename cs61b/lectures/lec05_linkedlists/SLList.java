@@ -1,6 +1,6 @@
 public class SLList {
 
-    private class IntNode {
+    private static class IntNode {
         private int item;
         private IntNode next;
 
@@ -25,9 +25,7 @@ public class SLList {
         l.addFirst(4);
         l.addFirst(2);
 
-        
-
-        System.out.println(l); //testing toString()
+        System.out.println(l); // testing toString()
     }
 
     public void addFirst(int x) {
@@ -44,9 +42,10 @@ public class SLList {
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
         IntNode temp = first;
-        while(temp != null) {
+        while (temp != null) {
             sb.append(temp.item);
-            if(temp.next != null) sb.append(" -> ");
+            if (temp.next != null)
+                sb.append(" -> ");
             temp = temp.next;
         }
         sb.append("]");
