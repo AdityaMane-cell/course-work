@@ -43,7 +43,7 @@ public class DLList {
 
     /* Add at the START of the DLlist */
     public void addFirst(int data) {
-  
+        /*
         // adding first node in list other than sentinel
         if(sentinel.next == null) {
             Node first = new Node(data, sentinel, sentinel);
@@ -54,8 +54,13 @@ public class DLList {
             Node first = new Node(data, sentinel, nextNode);
             nextNode.prev = sentinel.next = first;
         }
+        */
 
-
+        // combined approach no special case
+        Node nextNode = sentinel.next;
+        Node first = new Node(data, sentinel, sentinel.next);
+        sentinel.next = nextNode.prev = first;
+       
         size++;
     }
 
