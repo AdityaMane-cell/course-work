@@ -1,5 +1,7 @@
 package lec05_doublylinkedlists;
 
+import java.util.NoSuchElementException;
+
 public class DLList {
     private static class Node{
         private int item;
@@ -71,31 +73,58 @@ public class DLList {
         // System.out.println("First: "+ dl2.getFirst() + "\nLast: "+ dl2.getLast());
         
 
-        System.out.println("------------------ Testing default constructor with addLast() ------------------------------------------------");
-        // Testing default constructor with addLast() 
-        DLList dl3 = new DLList();
-        dl3.addLast(99);
-        dl3.addLast(88);
-        dl3.addLast(77);
-        dl3.addLast(66);
+        // System.out.println("------------------ Testing default constructor with addLast() ------------------------------------------------");
+        // // Testing default constructor with addLast() 
+        // DLList dl3 = new DLList();
+        // dl3.addLast(99);
+        // dl3.addLast(88);
+        // dl3.addLast(77);
+        // dl3.addLast(66);
 
-        System.out.println("Size: " + dl3.size());
-        System.out.println(dl3);
-        System.out.println("First: "+ dl3.getFirst() + "\nLast: "+ dl3.getLast());
+        // System.out.println("Size: " + dl3.size());
+        // System.out.println(dl3);
+        // System.out.println("First: "+ dl3.getFirst() + "\nLast: "+ dl3.getLast());
         
 
-        System.out.println("------------------- Testing default constructor with addLast() ---------------------------------------------");      
-        // Testing default constructor with addLast() 
-        DLList dl4 = new DLList(55);
-        dl4.addLast(44);
-        dl4.addLast(33);
-        dl4.addLast(22);
-        dl4.addLast(11);
+        // System.out.println("------------------- Testing default constructor with addLast() ---------------------------------------------");      
+        // // Testing default constructor with addLast() 
+        // DLList dl4 = new DLList(55);
+        // dl4.addLast(44);
+        // dl4.addLast(33);
+        // dl4.addLast(22);
+        // dl4.addLast(11);
 
-        System.out.println("Size: " + dl4.size());
-        System.out.println(dl4);
-        System.out.println("First: "+ dl4.getFirst() + "\nLast: "+ dl4.getLast());
+        // System.out.println("Size: " + dl4.size());
+        // System.out.println(dl4);
+        // System.out.println("First: "+ dl4.getFirst() + "\nLast: "+ dl4.getLast());
         
+
+        System.out.println("------------------- Testing indexOf(item) on 0-indexed list ---------------------------------------------");      
+        // Testing indexOf() -- 0 indexed list
+        DLList dl5 = new DLList(50);
+        dl5.addLast(40);
+        dl5.addLast(30);
+        dl5.addLast(20);
+        dl5.addLast(10);
+
+        System.out.println("Size: " + dl5.size());
+        System.out.println(dl5);
+        System.out.println("Index of [20]: " + dl5.indexOf(20));
+        System.out.println("Index of [2]: " + dl5.indexOf(2));
+        
+
+        System.out.println("------------------- Testing searchAt(index) on 0-indexed list ---------------------------------------------");      
+        // Testing searchAt() -- 0 indexed list
+        DLList dl6 = new DLList(100);
+        dl6.addLast(90);
+        dl6.addLast(80);
+        dl6.addLast(70);
+        dl6.addLast(60);
+
+        System.out.println("Size: " + dl6.size());
+        System.out.println(dl6);
+        System.out.println("Element at index '2': " + dl6.searchAt(2));
+        System.out.println("Element at index '30': " + dl6.searchAt(30));
     }
 
     /* Add at the START of the DLlist */
@@ -152,13 +181,37 @@ public class DLList {
     }
 
     /* search X element & return it's index */
-    public int find(int i) {
-        
+    public int indexOf(int i) {
+        int idx = 0;
+        Node curr = sentinel.next;
+        while(curr != sentinel) {
+            if(curr.item == i) {
+                return idx;
+            }
+            curr = curr.next;
+            idx++;
+        }
 
-        return 0;
+        throw new NoSuchElementException("Element not found");
     }
 
     /* get element based on index  */
+    public int searchAt(int i) {
+        if(i > size) {
+            throw new IndexOutOfBoundsException("Index " + i + " exceeds the size of list.");
+        }
+        int idx = 0;
+        Node curr = sentinel.next;
+        while(curr != sentinel) {
+            if(idx == i) {
+                return curr.item;
+            }
+            curr = curr.next;
+            idx++;
+        }
+
+        return -1;
+    }
 
     /* Print list */
     public String toString() {
