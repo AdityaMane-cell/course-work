@@ -22,23 +22,80 @@ public class DLList {
         size = 0;
     }
 
-    public DLList(int i, Node prev, Node next) {
+    public DLList(int i) {
+        /* // issue: constructor code duplication
+
         sentinel = new Node(-1, null, null);
         Node first = new Node(i, sentinel, sentinel);
         sentinel.next = sentinel.prev = first;
         size+=1;
+        */
+
+        this();
+        addFirst(i);
     }
 
     public static void main(String[] args) {
-        DLList dl = new DLList();
-        dl.addFirst(2);
-        dl.addFirst(3);
-        dl.addFirst(4);
-        dl.addFirst(5);
+        // System.out.println("---------------------- Testing with empty list --------------------------------------------");
+        // // Testing with empty list
+        // DLList dl0 = new DLList();
+        // System.out.println("Size: " + dl0.size());
+        // System.out.println("First: " + dl0.getFirst());
+        // System.out.println("Last: " + dl0.getLast());
+        // System.out.println(dl0);
 
-        System.out.println("DL Size:- " + dl.size());
-        System.out.println(dl);
 
+        // System.out.println("--------------- Testing with default constructor with addFirst() --------------------------------------------------");
+        // // Testing with default constructor with addFirst()
+        // DLList dl1 = new DLList();
+        // dl1.addFirst(2);
+        // dl1.addFirst(3);
+        // dl1.addFirst(4);
+        // dl1.addFirst(5);
+
+        // System.out.println("DL Size:- " + dl1.size());
+        // System.out.println(dl1);
+        // System.out.println("First: "+ dl1.getFirst() + "\nLast: "+ dl1.getLast());
+        
+
+        // System.out.println("-------------------- Testing with parameterized constructor with addLast() ------------------------------------------------");
+        // // Testing with parameterized constructor with addLast()
+        // DLList dl2 = new DLList(8);
+        // dl2.addFirst(10);
+        // dl2.addFirst(14);
+        // dl2.addFirst(18);
+        // dl2.addFirst(20);
+
+        // System.out.println("Size: " + dl2.size());
+        // System.out.println(dl2);
+        // System.out.println("First: "+ dl2.getFirst() + "\nLast: "+ dl2.getLast());
+        
+
+        System.out.println("------------------ Testing default constructor with addLast() ------------------------------------------------");
+        // Testing default constructor with addLast() 
+        DLList dl3 = new DLList();
+        dl3.addLast(99);
+        dl3.addLast(88);
+        dl3.addLast(77);
+        dl3.addLast(66);
+
+        System.out.println("Size: " + dl3.size());
+        System.out.println(dl3);
+        System.out.println("First: "+ dl3.getFirst() + "\nLast: "+ dl3.getLast());
+        
+
+        System.out.println("------------------- Testing default constructor with addLast() ---------------------------------------------");      
+        // Testing default constructor with addLast() 
+        DLList dl4 = new DLList(55);
+        dl4.addLast(44);
+        dl4.addLast(33);
+        dl4.addLast(22);
+        dl4.addLast(11);
+
+        System.out.println("Size: " + dl4.size());
+        System.out.println(dl4);
+        System.out.println("First: "+ dl4.getFirst() + "\nLast: "+ dl4.getLast());
+        
     }
 
     /* Add at the START of the DLlist */
@@ -66,15 +123,26 @@ public class DLList {
 
     /* get the START value */
     public int getFirst() {
+        if(size == 0) {
+            throw new java.util.NoSuchElementException("List is Empty!!");
+        }
         return sentinel.next.item;
     }
 
     /* Add at the END of the DLlist */
     public void addLast(int data) {
-        ///-----------------------------------------------------------------------------------------------------
+        Node prevNode = sentinel.prev;
+        Node last = new Node(data, prevNode, sentinel);
+        prevNode.next = sentinel.prev = last;
+
+        size++;
     }
+
     /* get the LAST value */
     public int getLast() {
+        if(size == 0) {
+            throw new java.util.NoSuchElementException("List is Empty!!");
+        }
         return sentinel.prev.item;
     }
 
@@ -84,6 +152,12 @@ public class DLList {
     }
 
     /* search X element & return it's index */
+    public int find(int i) {
+        
+
+        return 0;
+    }
+
     /* get element based on index  */
 
     /* Print list */
@@ -91,11 +165,8 @@ public class DLList {
         Node curr = sentinel.next;
         StringBuilder sb = new StringBuilder("[");
         while(curr != sentinel) {
-            if (curr.next == sentinel) {
-                sb.append(curr.item);
-                break;
-            }
-            sb.append(curr.item).append(" -> ");
+            sb.append(curr.item);
+            if(curr.next != sentinel) sb.append(" -> ");
             curr = curr.next;
         }
         sb.append("]");
