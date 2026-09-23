@@ -99,18 +99,18 @@ public class DLList {
         // System.out.println("First: "+ dl4.getFirst() + "\nLast: "+ dl4.getLast());
         
 
-        System.out.println("------------------- Testing indexOf(item) on 0-indexed list ---------------------------------------------");      
-        // Testing indexOf() -- 0 indexed list
-        DLList dl5 = new DLList(50);
-        dl5.addLast(40);
-        dl5.addLast(30);
-        dl5.addLast(20);
-        dl5.addLast(10);
+        // System.out.println("------------------- Testing indexOf(item) on 0-indexed list ---------------------------------------------");      
+        // // Testing indexOf() -- 0 indexed list
+        // DLList dl5 = new DLList(50);
+        // dl5.addLast(40);
+        // dl5.addLast(30);
+        // dl5.addLast(20);
+        // dl5.addLast(10);
 
-        System.out.println("Size: " + dl5.size());
-        System.out.println(dl5);
-        System.out.println("Index of [20]: " + dl5.indexOf(20));
-        System.out.println("Index of [2]: " + dl5.indexOf(2));
+        // System.out.println("Size: " + dl5.size());
+        // System.out.println(dl5);
+        // System.out.println("Index of [20]: " + dl5.indexOf(20));
+        // System.out.println("Index of [2]: " + dl5.indexOf(2));
         
 
         System.out.println("------------------- Testing searchAt(index) on 0-indexed list ---------------------------------------------");      
@@ -123,8 +123,8 @@ public class DLList {
 
         System.out.println("Size: " + dl6.size());
         System.out.println(dl6);
-        System.out.println("Element at index '2': " + dl6.searchAt(2));
-        System.out.println("Element at index '30': " + dl6.searchAt(30));
+        System.out.println("Element at index '2': " + dl6.get(2));
+        System.out.println("Element at index '30': " + dl6.get(30));
     }
 
     /* Add at the START of the DLlist */
@@ -196,9 +196,9 @@ public class DLList {
     }
 
     /* get element based on index  */
-    public int searchAt(int i) {
-        if(i > size) {
-            throw new IndexOutOfBoundsException("Index " + i + " exceeds the size of list.");
+    public int get(int i) {
+        if(i < 0 || i >= size) {
+            throw new IndexOutOfBoundsException("Index: " + i + " exceeds the Size: " + size);
         }
         int idx = 0;
         Node curr = sentinel.next;
@@ -209,8 +209,7 @@ public class DLList {
             curr = curr.next;
             idx++;
         }
-
-        return -1;
+        throw new IllegalStateException("Unexpected error: index not found.");
     }
 
     /* Print list */
