@@ -1,3 +1,9 @@
+/*
+Improvements:
+1. Generics implementation
+2. Ascending and Descending selection sort based choice based on choice.
+*/
+
 public class SelectionSortCustom {
     // selection sort for int
     public static void selectionSort(int[] x) {
