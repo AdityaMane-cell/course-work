@@ -1,4 +1,5 @@
 public class SelectionSortCustom {
+    // selection sort for int
     public static void selectionSort(int[] x) {
         // find smallest
         for(int i=0; i < x.length; i++) {
@@ -14,6 +15,7 @@ public class SelectionSortCustom {
         
     }
 
+    // selection sort for string
     public static void selectionSort(String[] x) {
         // find smallest
         for(int i=0; i < x.length; i++) {
@@ -28,11 +30,14 @@ public class SelectionSortCustom {
         }
     }
 
+    // swap for int
     public static void swap(int[] x, int a, int b) {
         int temp = x[a];
         x[a] = x[b];
         x[b] = temp;
     }
+
+    // swap for string
     public static void swap(String[] x, int a, int b) {
         String temp = x[a];
         x[a] = x[b];
@@ -52,6 +57,7 @@ public class SelectionSortCustom {
         }
         System.out.println();
     }
+    
     public static void main(String args[]) {
         // Integer sort
         int[] nums = {4, 2, 6, 1, 8, 3};
