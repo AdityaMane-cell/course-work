@@ -1,4 +1,3 @@
-
 public class SelectionSortCustom {
     public static void selectionSort(int[] x) {
         // find smallest
@@ -15,30 +14,60 @@ public class SelectionSortCustom {
         
     }
 
-    // public void selectionSort(String[] x) {
-
-    // }
+    public static void selectionSort(String[] x) {
+        // find smallest
+        for(int i=0; i < x.length; i++) {
+            int smallest = i;
+            for(int j=i; j < x.length; j++) {
+                if(x[smallest].compareTo(x[j]) >= 0) {
+                    smallest = j;
+                }
+            }
+            // swap the smallest
+            swap(x, smallest, i);
+        }
+    }
 
     public static void swap(int[] x, int a, int b) {
         int temp = x[a];
         x[a] = x[b];
         x[b] = temp;
     }
-
+    public static void swap(String[] x, int a, int b) {
+        String temp = x[a];
+        x[a] = x[b];
+        x[b] = temp;
+    }
+    
+    // helper functions
     public static void print(int[] x) {
         for(int num: x) {
             System.out.print(num + " ");
         }
         System.out.println();
     }
-    
+    public static void print(String[] x) {
+        for(String word: x) {
+            System.out.print(word + " ");
+        }
+        System.out.println();
+    }
     public static void main(String args[]) {
-        int[] x = {4, 2, 6, 1, 8, 3};
+        // Integer sort
+        int[] nums = {4, 2, 6, 1, 8, 3};
         System.out.println("Original: ");
-        print(x);      
-        selectionSort(x);
+        print(nums);      
+        selectionSort(nums);
         System.out.println("Sorted: ");
-        print(x);      
+        print(nums);
+        
+        // String sort
+        String[] words = {"World", "Hello", "Alpha", "Omega", "Zeta", "Pi"};
+        System.out.println("Original: ");
+        print(words);      
+        selectionSort(words);
+        System.out.println("Sorted: ");
+        print(words);      
     }
 }
 
