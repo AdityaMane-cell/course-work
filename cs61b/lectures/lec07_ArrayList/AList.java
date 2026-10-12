@@ -1,5 +1,48 @@
 package cs61b.lectures.lec07_ArrayList;
 
+/* Invariants:
+addLast: The next item we want to add, will go into position size.
+getLast: The item we want to return is in position size -1.
+size: The number of items in the list should be size.
+*/
+
 public class AList {
+    int[] items;
+    int size;
+
+    // Create an empty list
+    public AList() {
+        items = new int[100];
+        size = 0;
+    }
+
+    // insert x into the back of the list
+    public void addLast(int x) {
+
+    }
+
+    // return the last item of the list
+    public int getLast() {
+        return 0;
+    }
     
+    // get the i^th item in the list (0 is the front)
+    public int get(int i) {
+        return 0;
+    }
+
+    // returns the number of items in the list
+    public int size() {
+        return size;
+    }
+
+    // deletes item from the back of the list and returns deleted item
+    public int popLast() {
+        return 0;
+    }
+
+    // testing functions
+    public static void main(String args[]) {
+        
+    }
 }
