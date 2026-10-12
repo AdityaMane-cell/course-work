@@ -29,12 +29,15 @@ public class AList {
 
     // get the i^th item in the list (0 is the front)
     public int get(int i) {
-        return 0;
+        if(i > size || i < 0)  {
+            throw new ArrayIndexOutOfBoundsException("Invalid index");
+        }
+        return items[i];
     }
 
     // returns the number of items in the list
     public int size() {
-        return size;
+        return size+1;
     }
 
     // deletes item from the back of the list and returns deleted item
