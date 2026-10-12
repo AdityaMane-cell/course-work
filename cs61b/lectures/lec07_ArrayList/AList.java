@@ -2,7 +2,7 @@ package cs61b.lectures.lec07_ArrayList;
 
 /* Invariants:
 addLast: The next item we want to add, will go into position size.
-getLast: The item we want to return is in position size -1.
+getLast: The item we want to return is in position size - 1.
 size: The number of items in the list should be size.
 */
 
@@ -41,8 +41,11 @@ public class AList {
     }
 
     // deletes item from the back of the list and returns deleted item
-    public int popLast() {
-        return 0;
+    public int removeLast() {
+        int x = getLast();
+        size--;
+        // item[size] = 0; // Not really needed as abstraction takes care of this
+        return x;
     }
 
     // prints all the elements of the list
@@ -67,14 +70,15 @@ public class AList {
         // testing getLast()
         System.out.println("Last Element: " + al.getLast());
 
-        // testing get(i) 
-        System.out.println("Get i^th Element: " + al.get(3));
+        // testing get(i)
+        System.out.println("Get 3rd Element: " + al.get(3));
 
-        // testing size() 
+        // testing size()
         System.out.println("Get size of the list: " + al.size());
 
         // testing popLast()
-        System.out.println("Remove & display the last element: " + al.popLast());
+        System.out.println("Remove & display the last element: " + al.removeLast());
+        al.print();
 
     }
 }
