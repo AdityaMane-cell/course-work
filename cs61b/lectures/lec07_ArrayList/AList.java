@@ -18,12 +18,13 @@ public class AList {
 
     // insert x into the back of the list
     public void addLast(int x) {
-
+        items[size] = x;
+        size++;
     }
 
     // return the last item of the list
     public int getLast() {
-        return 0;
+        return items[size];
     }
 
     // get the i^th item in the list (0 is the front)
