@@ -24,7 +24,7 @@ public class AList {
 
     // return the last item of the list
     public int getLast() {
-        return items[size];
+        return items[size - 1];
     }
 
     // get the i^th item in the list (0 is the front)
@@ -37,7 +37,7 @@ public class AList {
 
     // returns the number of items in the list
     public int size() {
-        return size+1;
+        return size;
     }
 
     // deletes item from the back of the list and returns deleted item
