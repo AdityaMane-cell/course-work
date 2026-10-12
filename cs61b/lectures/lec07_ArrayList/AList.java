@@ -7,8 +7,8 @@ size: The number of items in the list should be size.
 */
 
 public class AList {
-    int[] items;
-    int size;
+    private int[] items;
+    private int size;
 
     // Create an empty list
     public AList() {
@@ -25,7 +25,7 @@ public class AList {
     public int getLast() {
         return 0;
     }
-    
+
     // get the i^th item in the list (0 is the front)
     public int get(int i) {
         return 0;
@@ -43,6 +43,6 @@ public class AList {
 
     // testing functions
     public static void main(String args[]) {
-        
+
     }
 }
