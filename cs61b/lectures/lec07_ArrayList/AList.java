@@ -43,6 +43,6 @@ public class AList {
 
     // testing functions
     public static void main(String args[]) {
-        
+        // testing AList declaration
     }
 }
